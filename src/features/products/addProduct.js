@@ -1,10 +1,12 @@
 import { useDispatch } from "react-redux"
 import { addNewProduct } from "./productsSlice"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export const AddProductForm = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const [title, setTitle] = useState('')
   const [price, setPrice] = useState('')
   const [category, setCategory] = useState('')
@@ -23,6 +25,7 @@ export const AddProductForm = () => {
     if (canSave) {
       try {
         await dispatch(addNewProduct({ title, price, category, description, image})).unwrap()
+        navigate('/')
       } catch (error) {
         console.error('Failed to add product: ', error)
       }
@@ -56,7 +59,7 @@ export const AddProductForm = () => {
               <input className="form-control" type="file" id="formFile" value={image} onChange={onImageChanged} />
             </div>
             <div className="col-12">
-              <Link to="/" type="submit" className="btn btn-primary" onClick={onProductAddClicked} disabled={!canSave}>Add</Link>
+              <button type="button" className="btn btn-primary" onClick={onProductAddClicked} disabled={!canSave}>Add</button>
             </div>
           </div>
         </fieldset>
