@@ -17,7 +17,7 @@ export const LoginPage = () => {
     try {
       const loginData = { username, password }
       dispatch(userLogin(loginData))
-      navigate('/')
+      navigate('/profile')
     } catch (error) {
     }
   }

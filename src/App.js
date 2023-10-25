@@ -7,6 +7,7 @@ import { EditProductForm } from './features/products/editProduct';
 import { LoginPage } from './features/users/loginPage';
 import Navbar from './navbar';
 import { SignupPage } from './features/users/signupPage';
+import { Profile } from './features/users/profile';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               <Route exact path='/products/:productId/edit' Component={EditProductForm} />
               <Route exact path='/login' Component={LoginPage} />
               <Route exact path='/signup' Component={SignupPage} />
+              <Route exact path='/profile' Component={Profile} />
             </Routes>
         </div>
       </Router>

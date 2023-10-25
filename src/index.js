@@ -7,9 +7,11 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { fetchProducts } from './features/products/productsSlice';
 import 'bootstrap/dist/css/bootstrap.css';
+import { getAllUsers } from './features/users/usersSlice';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 store.dispatch(fetchProducts())
+store.dispatch(getAllUsers())
 
 root.render(
   <React.StrictMode>
